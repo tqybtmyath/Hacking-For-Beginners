@@ -1,4 +1,4 @@
-import os 
+import os
 import subprocess
 import webbrowser
 
@@ -14,7 +14,7 @@ def communication():
     print()
     print_green('[0] Launch And Clean Up Your System Completely')
     print_green('[1] Launch Nmap Port Scanner')
-    print_green('[2] Launch Wifite (WPA-PSK key cracker)')
+    print_green('[2] Launch Wifite (WPA-PSK Key Cracker)')
     print_green('[3] Launch Metasploit Framework')
     print_green('[4] Launch Social Engineering ToolKit')
     print_green('[5] Launch Ettercap Graphical (GUI)')
@@ -24,13 +24,15 @@ def communication():
     print_green('[9] Launch And Install Python')
     print_green('[10] Launch My GitHun Account')
     print_green('[11] Launch And Install Wifi-Phisher')
+    print_green('[12] Launch And Ping A Website')
+    print_green('[13] Launch And Install Bettercap')
     print()
-    user_choose = input('root@hack ~ : ')
+    user_choose = input('root@kali:~# ')
 
     if user_choose == '0':
         subprocess.run(['sudo', 'apt', 'install', 'bleachbit'])
         subprocess.run(['bleachbit'])
-    if user_choose == '1':
+    elif user_choose == '1':
         user_ip = input('Enter ip to scan: ')
         subprocess.run(['nmap', user_ip])
     elif user_choose == '2':
@@ -55,7 +57,14 @@ def communication():
     elif user_choose == '11':
         subprocess.run(['sudo', 'apt', 'install', 'wifiphisher'])
         subprocess.run(['sudo', 'wifiphisher'])
+    elif user_choose == '12':
+        ip = input('Enter Website to Ping: ')
+        subprocess.run(['ping', ip])
+    elif user_choose == '13':
+	    interface = input('Enter your kali linux interface: ')
+	    subprocess.run(['sudo', 'apt', 'install', 'bettercap'])
+	    subprocess.run(['bettercap', '-iface', interface])
     else:
-        print('[!] Unknown Symbol.')
-   
+        print('[-] Unknown Symbol.')
+
 communication()
